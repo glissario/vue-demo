@@ -5,7 +5,7 @@
       <small>{{ subtitle }}</small>
     </td>
     <td class="isbn">
-      <router-link :to="{ name: 'details', params: { isbn: isbn } }">
+      <router-link :to="{ name: 'details', params: { isbn } }">
         {{ "ISBN: " + isbn }}</router-link
       >
     </td>

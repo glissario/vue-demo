@@ -1,8 +1,8 @@
 <template>
   <div class="table">
     <img class="image" :src="booksdata.cover" />
-    <h1>{{ booksdata.title }}</h1>
-    <h2>{{ booksdata.subtitle }}</h2>
+    <h1 class="title">{{ booksdata.title }}</h1>
+    <h2 class="subtitle">{{ booksdata.subtitle }}</h2>
     <div>
       <p class="author">
         {{
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       booksdata: "",
-      image: "localhost:4730/covers/1001606140805.png",
     };
   },
 
@@ -35,9 +34,7 @@ export default {
   },
 
   beforeRouteLeave() {
-    const answer = window.confirm("Bist du sicher?");
-    console.log("test");
-    return answer;
+    window.confirm("Bist du sicher?");
   },
 
   async created() {
@@ -58,10 +55,6 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  font-size: 18;
-}
-
 .table {
   width: 50rem;
   margin: auto;
@@ -80,11 +73,22 @@ h2 {
   box-shadow: rgba(208, 206, 206, 0.3) 0px 19px 38px,
     rgba(208, 206, 206, 0.22) 0px 15px 12px;
 }
+.title {
+  padding-right: 1rem;
+  margin: 0rem 1rem;
+  margin-top: 1.5rem;
+}
+.subtitle {
+  padding-right: 1rem;
+  margin: 0.5rem 1rem;
+}
 .author {
   display: inline;
   margin: 0;
 }
 .abstract {
   grid-column-start: span 2;
+  margin: 0.5rem;
+  padding: 0.5rem 2.5rem;
 }
 </style>

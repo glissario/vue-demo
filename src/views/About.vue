@@ -1,5 +1,4 @@
 <template>
-  Its me
   <About />
 </template>
 
