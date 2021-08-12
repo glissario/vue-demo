@@ -1,14 +1,14 @@
 <template>
   <ul>
-    <li @click="navigate('books')">
-      <router-link :to="{ name: 'books' }" active-class="active"
-        >Books</router-link
-      >
+    <li>
+      <router-link :to="{ name: 'books' }" active-class="active">
+        Books
+      </router-link>
     </li>
     <li>
-      <router-link :to="{ name: 'about' }" active-class="active"
-        >About</router-link
-      >
+      <router-link :to="{ name: 'about' }" active-class="active">
+        About
+      </router-link>
     </li>
   </ul>
 </template>

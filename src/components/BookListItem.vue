@@ -1,19 +1,24 @@
 <template>
-  <td class="book-items">{{ "Title: " + title }}</td>
-  <td class="book-items">
-    <router-link :to="{ name: 'details', params: { isbn: isbn } }">
-      {{ "ISBN: " + isbn }}</router-link
-    >
-  </td>
-  <td class="table-button">
-    <input
-      type="button"
-      class="button"
-      value="read"
-      @click="checkStatus"
-      :disabled="buttonIsActive"
-    />
-  </td>
+  <tr class="line">
+    <td class="title">
+      {{ title + ": " }}
+      <small>{{ subtitle }}</small>
+    </td>
+    <td class="isbn">
+      <router-link :to="{ name: 'details', params: { isbn: isbn } }">
+        {{ "ISBN: " + isbn }}</router-link
+      >
+    </td>
+    <td class="table-button">
+      <input
+        type="button"
+        class="button"
+        :value="buttonText"
+        @click="checkStatus"
+      />
+    </td>
+  </tr>
+  <!--  :disabled="buttonIsActive"-->
   <!--router-link :to="{ name: 'details', params: { isbn: isbn } }">
     {{ title }}</router-link
   -->
@@ -23,7 +28,7 @@
 export default {
   data() {
     return {
-      buttonIsActive: false,
+      buttonText: "not read ❌",
     };
   },
   props: {
@@ -47,22 +52,38 @@ export default {
   methods: {
     checkStatus() {
       this.$emit("change-button");
-      this.buttonIsActive = true;
+      console.log(this.buttonText);
+      return this.buttonText !== "read ✅"
+        ? (this.buttonText = "read ✅")
+        : (this.buttonText = "not read ❌");
     },
   },
 };
 </script>
 
 <style scoped>
-.book-items {
-  border: 1px solid blue;
-  width: 25rem;
+.line {
+  padding-bottom: 2rem;
+}
+.title {
+  _border: 1px solid blue;
+  border-bottom: 5px dotted gray;
+  width: 35rem;
+  height: 2rem;
+  padding: 1.5rem 0.5rem;
+  margin: auto;
+  hyphens: auto;
+}
+.isbn {
+  border-bottom: 5px dotted gray;
+  width: 15rem;
   height: 2rem;
   padding: 0.5rem;
   margin: auto;
 }
+
 .table-button {
-  border: 1px solid blue;
-  width: 5rem;
+  border-bottom: 5px dotted gray;
+  width: 10rem;
 }
 </style>

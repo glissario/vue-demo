@@ -1,5 +1,5 @@
 <template>
-  <bookList />
+  <BookList />
 </template>
 
 <script>

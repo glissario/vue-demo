@@ -1,12 +1,11 @@
 <template>
-  <table class="book-list">
-    <tr v-for="(book, i) in booksApi" v-bind:key="i">
-      <book-list-item
-        @change-button="checkStatus"
-        :title="book.title"
-        :isbn="book.isbn"
-      />
-    </tr>
+  <table class="book-list" v-for="(book, i) in booksApi" v-bind:key="i">
+    <book-list-item
+      @change-button="checkStatus"
+      :title="book.title"
+      :isbn="book.isbn"
+      :subtitle="book.subtitle"
+    />
   </table>
 </template>
 
@@ -49,12 +48,4 @@ export default {
 .book-list {
   margin: auto;
 }
-/*
-.book-items {
-  border: 1px solid blue;
-  width: 25rem;
-  height: 2rem;
-  padding: 0.5rem;
-  margin: auto;
-}*/
 </style>

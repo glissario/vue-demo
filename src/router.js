@@ -11,8 +11,12 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: "/",
+      redirect: "/books",
+    },
+    {
       path: "/books",
-      name: "books",
+      name: "Books",
       component: Books,
       children: [
         {
