@@ -18,10 +18,6 @@
       />
     </td>
   </tr>
-  <!--  :disabled="buttonIsActive"-->
-  <!--router-link :to="{ name: 'details', params: { isbn: isbn } }">
-    {{ title }}</router-link
-  -->
 </template>
 
 <script>
@@ -31,6 +27,7 @@ export default {
       buttonText: "not read ❌",
     };
   },
+
   props: {
     title: {
       type: String,
@@ -51,8 +48,8 @@ export default {
   },
   methods: {
     checkStatus() {
-      this.$emit("change-button");
-      console.log(this.buttonText);
+      this.$emit("checkStatus");
+
       return this.buttonText !== "read ✅"
         ? (this.buttonText = "read ✅")
         : (this.buttonText = "not read ❌");

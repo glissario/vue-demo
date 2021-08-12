@@ -1,20 +1,21 @@
 <template>
   <div class="table">
     <img class="image" :src="booksdata.cover" />
-    <h1 class="title">{{ booksdata.title }}</h1>
+    <h1 class="title">{{ booksdata.title + ": " }}</h1>
     <h2 class="subtitle">{{ booksdata.subtitle }}</h2>
     <div>
       <p class="author">
+        {{ "Author: " + booksdata.author }}
+      </p>
+      <p>
         {{
           "published by: " +
           booksdata.publisher +
-          ", author: " +
-          booksdata.author
+          " - pages: " +
+          booksdata.numPages
         }}
       </p>
-      <p>
-        {{ "pages: " + booksdata.numPages + " - for only: " + booksdata.price }}
-      </p>
+      <big> {{ "for only: " + booksdata.price }} </big>
     </div>
     <p class="abstract">{{ booksdata.abstract }}</p>
   </div>
@@ -70,6 +71,7 @@ export default {
   grid-column-start: span 1;
   grid-row-start: span 3;
   align-self: center;
+
   box-shadow: rgba(208, 206, 206, 0.3) 0px 19px 38px,
     rgba(208, 206, 206, 0.22) 0px 15px 12px;
 }
@@ -79,8 +81,9 @@ export default {
   margin-top: 1.5rem;
 }
 .subtitle {
+  font-size: 1.25rem;
   padding-right: 1rem;
-  margin: 0.5rem 1rem;
+  margin: 0rem 1rem;
 }
 .author {
   display: inline;
@@ -90,5 +93,6 @@ export default {
   grid-column-start: span 2;
   margin: 0.5rem;
   padding: 0.5rem 2.5rem;
+  text-align: left;
 }
 </style>

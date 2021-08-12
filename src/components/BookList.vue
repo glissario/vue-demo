@@ -1,10 +1,9 @@
 <template>
   <table class="book-list" v-for="(book, i) in booksApi" v-bind:key="i">
     <book-list-item
-      @change-button="checkStatus"
+      @checkStatus="$emit('checkStatus')"
       :title="book.title"
       :isbn="book.isbn"
-      :subtitle="book.subtitle"
     />
   </table>
 </template>
@@ -23,12 +22,7 @@ export default {
   mounted() {
     this.books = globalbooks.books;
   },
-  methods: {
-    changeButton() {
-      console.log(this.buttonIsActive);
-      this.buttonIsActive = true;
-    },
-  },
+  methods: {},
   async created() {
     const apiUrl = "http://localhost:4730/books";
     const httpElement = await fetch(apiUrl, {
